@@ -17,3 +17,19 @@ Algoritmos implementados
 		•	Serie de Fibonacci
 		•	Verificación de número primo
 
+Estructura del proyecto
+	
+	Fibonacci-primos/
+	│
+	├── index.html
+	├── CSS/
+	│   └── style.css
+	├── JS/
+	│   └── script.js
+	├── IMG/
+	│   ├── Arbolgenealogico.png
+	│   ├── algoritmofibo.png
+	│   ├── Primo.png
+	│   └──fiboyconejos.png
+	└── README.md
+
