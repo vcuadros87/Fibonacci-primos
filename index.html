@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Problemas de la Vida Usando Matemática</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./CSS/style.css" />
+</head>
+<body>
+
+<!-- ── NAVBAR ── -->
+<nav>
+  <div class="nav-brand">Matemática & Vida Real</div>
+  <div class="nav-links">
+    <a href="#abejas" class="nav-bee">🐝 Colmena</a>
+    <a href="#rsa"    class="nav-rsa">🔐 Seguridad</a>
+    <a href="#conejos" class="nav-rabbit">🐰 Conejos</a>
+  </div>
+</nav>
+
+
+<section class="hero" id="inicio">
+  <div class="hero-tag"> Valentina Cuadros Castelo </div>
+  <h1>
+    Problemas de la Vida<br>
+    Usando <b class="gold">Mate</b><b class="indigo">má</b><b class="green">tica</b>
+  </h1>
+  <p>
+    Fibonacci y Números Primos aplicados a problemas reales: colmenas de abejas,
+    seguridad informática y crecimiento de poblaciones.
+  </p>
+  <div class="hero-badges">
+    <div class="badge badge-bee">🐝 Fibonacci en Abejas</div>
+    <div class="badge badge-rsa">🔐 Primos en Seguridad RSA</div>
+    <div class="badge badge-rabbit">🐰 Conejos + Primos</div>
+  </div>
+</section>
+
+<!-------------     SECCIÓN 1 — COLMENA DE ABEJAS    ------------>
+<section id="abejas" class="seccion-bee">
+  <div class="container">
+    <p class="section-label">Fibonacci</p>
+    <h2 class="section-title">🐝 Colmena de Abejas</h2>
+
+    <div class="bloque bloque-bee">
+      <h3>¿Cuál es el problema real?</h3>
+      <p>
+        En una colmena, el nacimiento de las abejas es muy especial y diferente al de otros animales.
+        Cuando la reina pone un huevo y este se junta con una abeja macho lo fertiliza
+        (Huevo fertilizado) siendo de ahí donde nace siempre una hembra, que puede
+        convertirse en una trabajadora obrera o en una nueva reina.
+        En cambio, si el huevo no se junta con ninguna abeja macho y nace
+        (huevo no fertilizado), de ahí sale un macho, al que se llama zángano.
+        Esto significa algo súper curioso que sorprende a todo el mundo ya que un zángano
+        solo tiene madre, pero no tiene padre.
+      </p>
+      <p>
+        Si trazamos el árbol de ancestros de un zángano generación por generación,
+        la cantidad de ancestros sigue exactamente la serie de Fibonacci:
+      </p>
+      <div class="generaciones">
+        <div class="gen-item"><strong>Generación 1:</strong> 1 zángano</div>
+        <div class="gen-item"><strong>Generación 2:</strong> 1 madre</div>
+        <div class="gen-item"><strong>Generación 3:</strong> 2 abuelos</div>
+        <div class="gen-item"><strong>Generación 4:</strong> 3 bisabuelos</div>
+        <div class="gen-item"><strong>Generación 5:</strong> 5 tatarabuelos...</div>
+      </div>
+      <div class="imagen-centro">
+        <img src="./IMG/Arbolgenealogico.png" alt="Árbol genealógico de un zángano" />
+        <p>Árbol genealógico de un zángano</p>
+      </div>
+      <p>
+        Este patrón permite a los biólogos y apicultores estudiar la estructura familiar de una
+        colmena, estimar la diversidad genética y entender cómo se propagan las características
+        hereditarias dentro de la colonia.
+      </p>
+    </div>
+
+    <div class="bloque bloque-bee">
+      <h3>¿Cómo funciona el algoritmo?</h3>
+      <p>
+        La serie de Fibonacci se construye con una regla simple: cada número es la suma de
+        los dos anteriores. Para calcularlo usamos tres variables simples, sin necesidad de arrays.
+      </p>
+      <ol class="pasos">
+        <li>Empezamos con <strong>a = 1</strong> y <strong>b = 1</strong>. Estos representan las dos primeras generaciones.</li>
+        <li>En cada repetición del ciclo, calculamos <strong>c = a + b</strong>. Ese es el siguiente valor de Fibonacci.</li>
+        <li>Luego avanzamos: <strong>a = b</strong> y <strong>b = c</strong>. Así el ciclo puede continuar.</li>
+        <li>Repetimos esto tantas veces como generaciones ingrese el usuario, mostrando el valor de <strong>a</strong> en cada paso.</li>
+      </ol>
+      <div class="imagen-centro">
+        <img src="./IMG/algoritmofibo.png" alt="Código Fibonacci abejas" />
+        <p>Algoritmo Fibonacci</p>
+      </div>
+    </div>
+
+    <div class="bloque bloque-bee">
+      <h3>Calculá el árbol de la colmena</h3>
+      <div class="form-field">
+        <label for="inputAbejas">Número de generaciones</label>
+        <input type="number" id="inputAbejas" min="1" max="30" placeholder="Ej: 10" />
+      </div>
+      <button class="btn btn-bee" onclick="calcularAbejas()">Calcular 🐝</button>
+      <div class="resultado" id="resultadoAbejas"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-----------    SECCIÓN 2 — SEGURIDAD RSA     ----------------->
+<section id="rsa" class="seccion-rsa">
+  <div class="container">
+    <p class="section-label">Números Primos</p>
+    <h2 class="section-title">🔐 Seguridad con Primos (RSA)</h2>
+
+    <div class="bloque bloque-rsa">
+      <h3>¿Cuál es el problema real?</h3>
+      <p>
+        Cada vez que entrás a un sitio web con HTTPS, enviás un correo electrónico
+        cifrado o realizás una transacción bancaria en línea, tu información viaja protegida gracias
+        a un sistema llamado RSA el cual fue creado en 1977 y es el estándar
+        de seguridad más usado en internet hasta hoy.
+      </p>
+      <p>
+        RSA se basa en una propiedad matemática fundamental de los números primos:
+        Esta consta de multiplicar dos primos, siendo fácil esta primer parte, pero dado el resultado, encontrar cuáles
+        fueron esos dos primos es casi imposible. Por ejemplo, calcular 13 * 17 = 221
+        es inmediato. Pero si alguien ve solo el número 221, necesitaría probar miles de
+        combinaciones para descubrir que vino de 13 y 17. Con primos de 300 dígitos, incluso
+        las supercomputadoras tardarían miles de años.
+      </p>
+      <p>
+        En este ejemplo se pueden ingresar dos números y la página verificará si ambos son primos
+        y si pueden formar una clave RSA válida, calculando los valores clave del sistema.
+      </p>
+    </div>
+
+    <div class="bloque bloque-rsa">
+      <h3>¿Cómo funciona el algoritmo?</h3>
+      <p>
+        Para verificar si un número es primo, contamos cuántos divisores exactos tiene.
+        Un número primo tiene exactamente 2 divisores: el 1 y él mismo.
+        Si tiene más divisores, no es primo.
+      </p>
+      <ol class="pasos">
+        <li>Tomamos el número ingresado y un <strong>contador = 0</strong>.</li>
+        <li>Recorremos todos los números desde 1 hasta el número. Si divide exactamente (resto = 0), aumentamos el contador.</li>
+        <li>Si al final <strong>contador == 2</strong>, el número es primo. Si tiene más divisores, no lo es.</li>
+        <li>Si ambos p y q son primos, calculamos <strong>n = p × q</strong> (clave pública) y <strong>φ = (p−1) × (q−1)</strong>.</li>
+      </ol>
+      <div class="imagen-centro">
+        <img src="./IMG/Primo.png" alt="Código verificación primo" />
+        <p>Algoritmo verificación de número primo</p>
+      </div>
+    </div>
+
+    <div class="bloque bloque-rsa">
+      <h3>Verificá tu clave RSA</h3>
+      <div class="form-field">
+        <label for="inputP">Número p</label>
+        <input type="number" id="inputP" min="2" placeholder="Ej: 13" />
+      </div>
+      <div class="form-field">
+        <label for="inputQ">Número q</label>
+        <input type="number" id="inputQ" min="2" placeholder="Ej: 17" />
+      </div>
+      <button class="btn btn-rsa" onclick="calcularRSA()">Verificar 🔐</button>
+      <div class="resultado" id="resultadoRSA"></div>
+    </div>
+
+  </div>
+</section>
+
+<!------------ SECCIÓN 3 — CONEJOS + PRIMOS     -------------------------->
+<section id="conejos" class="seccion-rabbit">
+  <div class="container">
+    <p class="section-label">Fibonacci + Primos</p>
+    <h2 class="section-title">🐰 Crecimiento de Conejos</h2>
+
+    <div class="bloque bloque-rabbit">
+      <h3>¿Cuál es el problema real?</h3>
+      <p>
+        En el año 1202, el matemático Leonardo Fibonacci planteó el siguiente problema en su libro
+        Liber Abaci: "¿Cuántas parejas de conejos habrá al cabo de un año si
+        partimos de una sola pareja?" Teniendo en cuenta que una pareja de conejos tarda un mes
+        en madurar, luego produce una nueva pareja cada mes y ningún conejo muere.
+      </p>
+      <p>
+        Este modelo aunque parezca antiguo, fue uno de los primeros en la historia en usar matemática
+        para simular el crecimiento de una población animal. Hoy en día se usa como base para
+        modelar crecimientos en biología, economía y demografía.
+      </p>
+      <p>
+        En este ejemplo: calculamos cuántas parejas de conejos hay cada mes con Fibonacci,
+        y además detectamos en qué meses la cantidad de parejas es un número primo,
+        siendo algo interesante porque son momentos matemáticamente especiales
+        en el crecimiento de la población.
+      </p>
+    </div>
+
+    <div class="bloque bloque-rabbit">
+      <h3>¿Cómo funciona el algoritmo?</h3>
+      <p>
+        Este problema combina el cálculo de Fibonacci con la verificación de números primos.
+        Para cada mes calculamos cuántas parejas hay y luego comprobamos si esa cantidad es prima.
+      </p>
+      <ol class="pasos">
+        <li>Iniciamos con <strong>a = 1</strong> y <strong>b = 1</strong> (mes 1 y mes 2 tienen 1 pareja cada uno).</li>
+        <li>Cada mes calculamos el siguiente valor: <strong>c = a + b</strong>, luego avanzamos <strong>a = b</strong> y <strong>b = c</strong>.</li>
+        <li>Para cada valor, verificamos si es primo contando sus divisores. Si tiene exactamente 2, es primo.</li>
+        <li>Mostramos la tabla completa resaltando en verde los meses donde la cantidad de conejos es prima.</li>
+      </ol>
+      <div class="imagen-centro">
+        <img src="./IMG/Fiboyconejos.png" alt="Código Fibonacci + primos" />
+        <p>Algoritmo Fibonacci + detección de primos</p>
+      </div>
+    </div>
+
+    <div class="bloque bloque-rabbit">
+      <h3>Simulá el crecimiento de la colonia</h3>
+      <div class="form-field">
+        <label for="inputConejos">Número de meses</label>
+        <input type="number" id="inputConejos" min="1" max="30" placeholder="Ej: 12" />
+      </div>
+      <button class="btn btn-rabbit" onclick="calcularConejos()">Simular 🐰</button>
+      <div class="resultado" id="resultadoConejos"></div>
+    </div>
+
+  </div>
+</section>
+
+<script src="./JS/script.js"></script>
+</body>
+</html>
